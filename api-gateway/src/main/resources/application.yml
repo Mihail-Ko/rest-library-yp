@@ -1,0 +1,22 @@
+server:
+  port: 80
+  address: 127.0.0.2
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: route
+          uri: lb://service
+          predicates:
+            - Path=/book/*,/reader/*,/borrowing/*,/book,/reader,/borrowing,/v3/**,/swagger-ui/*,/statistic,/statistic/*,/book-borrowing/*
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
