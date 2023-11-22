@@ -12,9 +12,6 @@ class AuthWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.auth_button.clicked.connect(self.auth_clicked)
         self.mainWindow = MainWindow()
-        # DEBUG
-        self.login_lineEdit.setText('admin')
-        self.password_lineEdit.setText('testPassword')
 
     def start_main_window(self):
         self.mainWindow.show()
